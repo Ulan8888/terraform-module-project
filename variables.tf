@@ -53,7 +53,7 @@ variable key {
 }
 
 variable instance_type {
-    type = "t2.xlarge" 
+    type = string 
     default = ""
 }
 
