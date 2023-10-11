@@ -16,7 +16,7 @@ module "project" {
     az2 = "us-east-2b"
     az3 = "us-east-2c"
     ip_on_launch = true
-    instance_type = "t2.micro"
+    instance_type = "t2.xlarge"
 }
 ```
 
