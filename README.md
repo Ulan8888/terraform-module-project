@@ -17,6 +17,8 @@ module "project" {
     az3 = "us-east-1c"
     ip_on_launch = true
     instance_type = "t2.xlarge"
+    bucket  =  "ulanbek-12345678"
+    key     =  "virginia-key"
 }
 ```
 
