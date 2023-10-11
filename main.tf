@@ -2,7 +2,7 @@ provider aws {
     region = var.region
 }
 resource "aws_vpc" "group2" {
-  cidr_block  = var.vpc_cidr
+  cidr_block  =   var.vpc_cidr
   tags = {
     Name = "group2"
   }
