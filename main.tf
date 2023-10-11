@@ -13,7 +13,7 @@ resource "aws_subnet" "subnet1" {
   availability_zone = var.az1
   map_public_ip_on_launch = var.ip_on_launch
   tags = {
-    Name = "Group2"
+    Name = "Group2"    
   }
 }
 resource "aws_subnet" "subnet2" {
