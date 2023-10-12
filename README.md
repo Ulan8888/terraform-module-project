@@ -18,12 +18,12 @@ module "project" {
     ip_on_launch = true
     instance_type = "t2.xlarge"
     bucket  =  "ulanbek-12345678"
-    key     =  "virginia-key"
+    key_name  =  "virginia-key"
 }
 ```
 
-
-<!-- Terraform Infrastructure Deployment and Module Publication
+<!-- 
+Terraform Infrastructure Deployment and Module Publication
 Part 1: Deploy Infrastructure
 Overview
 This documentation provides step-by-step instructions for deploying infrastructure using Terraform. The deployment includes creating a VPC, subnets, route table, internet gateway, security group, and an EC2 instance. Additionally, the code is made dynamic with variables and tfvars, a Makefile is included to streamline the deployment process, and the statefile is stored in a remote backend.
@@ -337,18 +337,75 @@ Step 7: Put  this code in your READ.me file
 
  Publish Module
 Click the "Publish Module" button.
-Your Terraform module is now published on the Terraform Registry and can be easily discovered and used by others. Share the module URL with your team or the community to encourage adoption in their Terraform configurations.
+Your Terraform module is now published on the Terraform Registry and can be easily discovered and used by others. Share the module URL with your team or the community to encourage adoption in their Terraform configurations. 
+
+Using a module from the Terraform Registry
+
+Visit the Terraform Registry at https://registry.terraform.io to find the module you want to use. You can search for modules by name, provider, or other criteria. 
+Type “Ulan8888/project” in search bar.
+Copy the module 
+
+
+Next, open the Visual Studio Code, create a New Folder “ProjectGroup2”.
+Create new file “main.tf”. 
+Open file main.tf and paste  module from Terraform Registry.
+Make sure to adjust the source value according to the module you want to use.
+
+Define Module Inputs:
+Module will require input variables to customize behavior. 
+
+Change variables according to your Region and availability zones in AWS  if needed.
+Save the file.
+Create gitlab.sh file, paste these commands inside the file:
+
+#!/bin/bash
+sudo apt update
+sudo apt install ca-certificates curl openssh-server tzdata perl -y
+curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+sudo bash script.deb.sh
+sudo apt install gitlab-ce -y
+
+Save the file.
+Open integrated terminal in VS code.
+Run terraform init 
+After adding the module declaration to your configuration, you should run terraform init. This command will download the module and any dependencies.
+
+
+Now you can run terraform plan to preview the changes and terraform apply to create the resources based on the module's configuration.
+Run terraform plan 
+Review and Confirm Changes:
+Terraform will show you a plan of what changes it's going to make based on your configuration. Review this plan and confirm the changes when prompted.
+Apply Changes:
+Run terraform apply again to apply the changes.
+
+When resources were created, open AWS EC2 page, copy Public IP address from your running instance.
+Paste Public IP address in search bar on browser.
+Click Enter
+Wait a couple minute for installation GitLab.
+
+#GitLab generates an initial secure password for you. It is stored in a folder that you can access as an administrative sudo user:
+sudo nano /etc/gitlab/initial_root_password
+username in Gitlab = root 
+
+Update page
+When you see Sign-in page, congratulation, you installed GitLab.
+
+Destroy Resources (if needed):
+If you want to destroy the resources created by the module, you can run terraform destroy.
+
+That's it! You've successfully used a module from the Terraform Registry in your Terraform configuration. Remember to regularly update your module versions as new releases become available, and always check the module's documentation for any updates or changes in usage.
+
 
 Team member
 Hours                                                                                                                       
 Aidai 
-13
-Aidana
 14
+Aidana
+15
 Darya
-12
-Ulan
 13
+Ulan
+14
 
 
  -->
