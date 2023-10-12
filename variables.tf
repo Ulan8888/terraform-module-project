@@ -55,5 +55,6 @@ variable key {
 variable instance_type {
     type = string 
     default = ""
+    
 }
 
