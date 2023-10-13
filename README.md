@@ -19,8 +19,7 @@ module "project" {
     instance_type = "t2.xlarge"
     bucket  =  "ulanbek-12345678"
     key_name  =  "virginia-key"
-}
-```
+
 
 Terraform Infrastructure Deployment and Module Publication
 Part 1: Deploy Infrastructure
@@ -395,3 +394,5 @@ Ulan
 
 
 
+}
+```
